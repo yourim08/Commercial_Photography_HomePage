@@ -1,0 +1,126 @@
+.member-card {
+  width: 254px;
+  height: 493px;
+  display: flex;
+  flex-direction: column;
+  /*세로방향으로 쌓음*/
+  align-items: center;
+}
+
+.image-wrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  border-radius: 20px;
+  overflow: visible;
+  /*뱃지가 사진 밖으로 보이게*/
+  margin-bottom: 16px;
+}
+
+.member-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.role-badge {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 27px;
+
+  position: absolute;
+  width: 54px;
+  height: 26px;
+  left: 12px;
+  top: 12px;
+  font-size: 14px;
+
+  background: #FFEBF4;
+  border-radius: 50px;
+
+  padding: 0;
+  text-align: center;
+
+}
+
+.gen-badge {
+  position: absolute;
+  bottom: -15px;           
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 73px;
+  height: 31px;
+  font-family: Pretendard;
+  font-size: 16px;
+  background: #FFD4E7;
+  border-radius: 50px;
+  padding: 0;
+  z-index: 10;
+
+}
+
+.gen-2 {
+  background: #FFD4E7;
+}
+
+.gen-3 {
+  background: #E3F5B3;
+}
+
+.member-info {
+  margin-top: 8px;
+  text-align: center;
+}
+
+.member-id {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px;
+  font-family: Pretendard;
+  font-size: 16px;
+  width: 142px;
+  height: 20px;
+  left: 56px;
+  top: 429px;
+  margin-top: 16px;
+}
+
+.member-instagram {
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 24px;
+  gap: 10px;
+
+  margin-top: 16px;
+  width: 128px;
+  height: 28px;
+  padding: 0;
+  text-align: center;
+  left: 63px;
+  top: 465px;
+  font-family: Pretendard;
+  font-size: 11px;
+  border: 0.5px solid #969696;
+  border-radius: 5px;
+  color: #969696;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+
+.member-instagram:hover {
+  background: #f0f0f0;
+}
+
+
