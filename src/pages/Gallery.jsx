@@ -4,28 +4,28 @@ import logo from '../assets/circle.svg';
 
 // 이미지 import (동일 경로 유지)
 import list_1 from '../assets/GalleryList/list_1.svg';
-import list_1_1 from '../assets/GalleryList/item/list_1_1.svg';
-import list_1_2 from '../assets/GalleryList/item/list_1_2.svg';
-import list_1_3 from '../assets/GalleryList/item/list_1_3.svg';
+import list_1_1 from '../assets/GalleryList/Item/list_1_1.svg';
+import list_1_2 from '../assets/GalleryList/Item/list_1_2.svg';
+import list_1_3 from '../assets/GalleryList/Item/list_1_3.svg';
 import list_2 from '../assets/GalleryList/list_2.svg';
-import list_2_1 from '../assets/GalleryList/item/list_2_1.svg'; 
-import list_2_2 from '../assets/GalleryList/item/list_2_2.svg'; 
+import list_2_1 from '../assets/GalleryList/Item/list_2_1.svg'; 
+import list_2_2 from '../assets/GalleryList/Item/list_2_2.svg'; 
 import list_3 from '../assets/GalleryList/list_3.svg';
-import list_3_1 from '../assets/GalleryList/item/list_3_1.svg'; 
-import list_3_2 from '../assets/GalleryList/item/list_3_2.svg'; 
-import list_3_3 from '../assets/GalleryList/item/list_3_3.svg'; 
-import list_3_4 from '../assets/GalleryList/item/list_3_4.svg'; 
-import list_3_5 from '../assets/GalleryList/item/list_3_5.svg'; 
+import list_3_1 from '../assets/GalleryList/Item/list_3_1.svg'; 
+import list_3_2 from '../assets/GalleryList/Item/list_3_2.svg'; 
+import list_3_3 from '../assets/GalleryList/Item/list_3_3.svg'; 
+import list_3_4 from '../assets/GalleryList/Item/list_3_4.svg'; 
+import list_3_5 from '../assets/GalleryList/Item/list_3_5.svg'; 
 import list_4 from '../assets/GalleryList/list_4.svg';
-import list_4_1 from '../assets/GalleryList/item/list_4_1.svg'; 
-import list_4_2 from '../assets/GalleryList/item/list_4_2.svg'; 
-import list_4_3 from '../assets/GalleryList/item/list_4_3.svg'; 
-import list_4_4 from '../assets/GalleryList/item/list_4_4.svg'; 
+import list_4_1 from '../assets/GalleryList/Item/list_4_1.svg'; 
+import list_4_2 from '../assets/GalleryList/Item/list_4_2.svg'; 
+import list_4_3 from '../assets/GalleryList/Item/list_4_3.svg'; 
+import list_4_4 from '../assets/GalleryList/Item/list_4_4.svg'; 
 import list_5 from '../assets/GalleryList/list_5.svg';
-import list_5_1 from '../assets/GalleryList/item/list_5_1.svg'; 
-import list_5_2 from '../assets/GalleryList/item/list_5_2.svg'; 
-import list_5_3 from '../assets/GalleryList/item/list_5_3.svg'; 
-import list_5_4 from '../assets/GalleryList/item/list_5_4.svg'; 
+import list_5_1 from '../assets/GalleryList/Item/list_5_1.svg'; 
+import list_5_2 from '../assets/GalleryList/Item/list_5_2.svg'; 
+import list_5_3 from '../assets/GalleryList/Item/list_5_3.svg'; 
+import list_5_4 from '../assets/GalleryList/Item/list_5_4.svg'; 
 
 const GalleryContainer = styled.div`
   -webkit-user-select: none; webkit-user-drag: none;
@@ -217,7 +217,7 @@ export default function Gallery() {
   }, [activeIndex, galleryData[activeIndex].imgs.length]);
 
   const handleScroll = () => {
-    if (scrollRef.current && itemRef.current) {
+    if (scrollRef.current && ItemRef.current) {
       // 272 같은 고정값 대신, 현재 화면에서 실제 렌더링된 아이템의 높이를 가져옵니다.
       const itemHeight = itemRef.current.offsetHeight;
       const scrollTop = scrollRef.current.scrollTop;
