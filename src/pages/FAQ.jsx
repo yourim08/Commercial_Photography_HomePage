@@ -2,14 +2,14 @@ import { useState } from "react";
 import styled from "styled-components";
 import logo from '../assets/question.svg';
 
-// --- 기존 레이아웃 유지 ---
+// --- 기존 레이아웃 유지 (수치만 반응형으로 변경) ---
 const FAQContainer = styled.div`
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
     position: relative;
-    height: 1300px;
+    height: ${props => props.theme.vh(1300)};
 `;
 
 const Info = styled.div`
@@ -27,57 +27,56 @@ const Logo = styled.img`
 `;
 
 const Head = styled.p`
-    padding-top: 20px;
+    padding-top: ${props => props.theme.vh(20)};
     font-family: 'Pretendard-SemiBold';
     font-size: ${props => props.theme.vw(40)};
     color: #1E1E1E;
 `;
 
 const Text = styled.p`
-    padding-top: 20px;
+    padding-top: ${props => props.theme.vh(20)};
     font-family: 'Pretendard-Regular';
     font-size: ${props => props.theme.vw(24)};
     color: #3C3C3C;
 `;
 
-// --- FAQ 리스트 (요청사항 반영) ---
+// --- FAQ 리스트 (반응형 수치 적용) ---
 
 const ListContainer = styled.div`
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: calc(${props => props.theme.vh(100 + 140 + 20 + 40 + 20 + 24)} + 150px); 
+    /* 기존 계산식 유지하되 수치만 theme 적용 */
+    top: calc(${props => props.theme.vh(100 + 140 + 20 + 40 + 20 + 24)} + ${props => props.theme.vh(150)}); 
     display: flex;
     flex-direction: column;
-    gap: 40px;
-    padding-bottom: 150px;
+    gap: ${props => props.theme.vh(40)};
+    padding-bottom: ${props => props.theme.vh(150)};
 `;
 
 const ItemBox = styled.div`
-    width: 980px;
+    width: ${props => props.theme.vw(980)};
     background-color: ${props => props.color};
-    border-radius: 15px;
+    border-radius: ${props => props.theme.vw(15)};
     cursor: pointer;
     overflow: hidden;
-    /* 아주 미세한 드롭 셰도우 */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
-    /* 슬라이드 애니메이션을 위한 트랜지션 */
+    box-shadow: 0px ${props => props.theme.vh(4)} ${props => props.theme.vw(10)} rgba(0, 0, 0, 0.05);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     
     /* 열렸을 때와 닫혔을 때의 높이 제어 */
-    max-height: ${props => (props.isOpen ? "500px" : "98px")};
+    max-height: ${props => (props.isOpen ? props.theme.vh(500) : props.theme.vh(98))};
 `;
 
 const QuestionRow = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 40px;
-    height: 98px;
+    padding: 0 ${props => props.theme.vw(40)};
+    height: ${props => props.theme.vh(98)};
     
     & span {
         font-family: 'Pretendard-Light';
-        font-size: 20px;
+        font-size: ${props => props.theme.vw(20)};
         color: #1E1E1E;
     }
 `;
@@ -85,34 +84,31 @@ const QuestionRow = styled.div`
 const QWrapper = styled.div`
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: ${props => props.theme.vw(20)};
 `;
 
 const AnswerContent = styled.div`
     position: relative;
-    /* 슬라이드 시 내용이 겹치지 않도록 함 */
     opacity: ${props => (props.isOpen ? "1" : "0")};
     transition: opacity 0.3s ease;
     
-    /* 답변 텍스트 위치 가이드 반영 */
-    padding-top: 33px;
-    padding-left: 80px;
-    padding-right: 40px;
-    padding-bottom: 40px;
+    padding-top: ${props => props.theme.vh(33)};
+    padding-left: ${props => props.theme.vw(80)};
+    padding-right: ${props => props.theme.vw(40)};
+    padding-bottom: ${props => props.theme.vh(40)};
 
     font-family: 'Pretendard-Light';
-    font-size: 20px;
+    font-size: ${props => props.theme.vw(20)};
     line-height: 1.6;
     color: #3C3C3C;
     white-space: pre-wrap;
 
-    /* 상단 구분선 */
     &::before {
         content: "";
         position: absolute;
         top: 0;
-        left: 40px;
-        right: 40px;
+        left: ${props => props.theme.vw(40)};
+        right: ${props => props.theme.vw(40)};
         border-top: 1px solid #BBBBBB;
     }
 `;
@@ -151,7 +147,8 @@ export default function FAQ() {
                                     <span>Q</span>
                                     <span>{item.q}</span>
                                 </QWrapper>
-                                <span style={{fontSize: '24px'}}>{isOpen ? "—" : "+"}</span>
+                                {/* 기호 크기도 theme.vw로 적용하여 반응형 대응 */}
+                                <span style={{fontSize: '2vw'}}>{isOpen ? "—" : "+"}</span>
                             </QuestionRow>
                             
                             <AnswerContent isOpen={isOpen}>
