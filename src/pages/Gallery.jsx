@@ -217,7 +217,7 @@ export default function Gallery() {
   }, [activeIndex, galleryData[activeIndex].imgs.length]);
 
   const handleScroll = () => {
-    if (scrollRef.current && ItemRef.current) {
+    if (scrollRef.current && itemRef.current) {
       // 272 같은 고정값 대신, 현재 화면에서 실제 렌더링된 아이템의 높이를 가져옵니다.
       const itemHeight = itemRef.current.offsetHeight;
       const scrollTop = scrollRef.current.scrollTop;
